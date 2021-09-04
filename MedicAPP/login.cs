@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicAPP.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace MedicAPP
 {
     public partial class Form1 : Form
     {
+        loginController objlogincontroller = new loginController();
         public Form1()
         {
             InitializeComponent();
@@ -30,9 +32,16 @@ namespace MedicAPP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MenuPrincipal frm = new MenuPrincipal();
-            frm.Show();
+            string username = txtUsername.Text;
+            string pass = txtPass.Text;
+            bool ingre;
+            ingre = objlogincontroller.BuscarUsuar(username, pass);
+            if(ingre)
+            {
+                this.Hide();
+                MenuPrincipal frm = new MenuPrincipal();
+                frm.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
