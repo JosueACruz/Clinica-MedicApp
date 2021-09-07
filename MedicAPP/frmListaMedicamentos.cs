@@ -15,9 +15,21 @@ namespace MedicAPP
         public frmListaMedicamentos()
         {
             InitializeComponent();
+            dgvMedicamentos.RowHeadersVisible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmListaMedicamentos_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(270, 60);
+            //Aqui cargar la lista de medicamentos
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }

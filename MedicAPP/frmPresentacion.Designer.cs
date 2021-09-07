@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPresentacion));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMedicamentos = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPresentacion = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +62,11 @@
             this.dgvMedicamentos.Name = "dgvMedicamentos";
             this.dgvMedicamentos.Size = new System.Drawing.Size(839, 363);
             this.dgvMedicamentos.TabIndex = 34;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Presentaciones";
+            this.Column1.Name = "Column1";
             // 
             // btnBuscar
             // 
@@ -151,16 +157,29 @@
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // Column1
+            // btnAtras
             // 
-            this.Column1.HeaderText = "Presentaciones";
-            this.Column1.Name = "Column1";
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnAtras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Font = new System.Drawing.Font("Century Gothic", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.ForeColor = System.Drawing.Color.White;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAtras.Location = new System.Drawing.Point(863, 9);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(41, 33);
+            this.btnAtras.TabIndex = 36;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // frmPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 665);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.dgvMedicamentos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEditar);
@@ -172,6 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPresentacion";
             this.Text = "frmPresentacion";
+            this.Load += new System.EventHandler(this.frmPresentacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,5 +209,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPresentacion;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

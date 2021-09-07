@@ -17,9 +17,15 @@ namespace MedicAPP.Controller
         {
             bool ret = false;
             SqlDataReader sdr = objModelLogin.buscarUsuario(username, pass);
-            if(sdr.HasRows)
+            if (sdr.HasRows)
             {
+                //existe el usuario
                 ret = true;
+            }
+            else
+            {
+                //No existe el usuario
+                ret = false;
             }
             return ret;
         }

@@ -15,6 +15,18 @@ namespace MedicAPP
         public frmPresentacion()
         {
             InitializeComponent();
+            dgvMedicamentos.RowHeadersVisible = false;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmPresentacion_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(270, 60);
+
         }
     }
 }

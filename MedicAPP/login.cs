@@ -35,13 +35,28 @@ namespace MedicAPP
             string username = txtUsername.Text;
             string pass = txtPass.Text;
             bool ingre;
-            ingre = objlogincontroller.BuscarUsuar(username, pass);
-            if(ingre)
+            if (username == "" || pass == "")
             {
-                this.Hide();
-                MenuPrincipal frm = new MenuPrincipal();
-                frm.Show();
+                MessageBox.Show("Por favor ingrese sus datos de inicio de sesion", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                ingre = objlogincontroller.BuscarUsuar(username, pass);
+                if (ingre)
+                {
+                    this.Hide();
+                    MenuPrincipal frm = new MenuPrincipal();
+                    frm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Su usuario o contraseña no es valido", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUsername.Text = "";
+                    txtPass.Text = "";
+                    txtUsername.Focus();
+                }
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -43,6 +43,7 @@
             this.btnLaboratorio = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnListaMedicamentos = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -223,11 +224,29 @@
             this.btnListaMedicamentos.Text = "LISTA MEDICAMENTOS";
             this.btnListaMedicamentos.UseVisualStyleBackColor = false;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnAtras.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Font = new System.Drawing.Font("Century Gothic", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.ForeColor = System.Drawing.Color.White;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAtras.Location = new System.Drawing.Point(941, 9);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(41, 33);
+            this.btnAtras.TabIndex = 83;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // frmMedicamentoNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 665);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnListaMedicamentos);
             this.Controls.Add(this.btnCategoria);
             this.Controls.Add(this.btnLaboratorio);
@@ -245,6 +264,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMedicamentoNuevo";
             this.Text = "frmMedicamentoNuevo";
+            this.Load += new System.EventHandler(this.frmMedicamentoNuevo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +286,6 @@
         private System.Windows.Forms.Button btnLaboratorio;
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button btnListaMedicamentos;
+        private System.Windows.Forms.Button btnAtras;
     }
 }
