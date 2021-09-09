@@ -50,6 +50,7 @@ namespace MedicAPP
             if(delt)
             {
                 txtCategoria.Text = "";
+                idCate = 0;
             }
         }
 

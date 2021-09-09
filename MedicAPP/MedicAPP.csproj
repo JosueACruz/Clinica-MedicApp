@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Controller\CategoriaMedicamentoController.cs" />
     <Compile Include="Controller\loginController.cs" />
+    <Compile Include="Controller\PresentacionMedicamentoController.cs" />
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +190,7 @@
     </Compile>
     <Compile Include="Model\ModelCategoriaMedicamento.cs" />
     <Compile Include="Model\ModelLogin.cs" />
+    <Compile Include="Model\ModelPresentacionMedicamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AgendarCitacs.resx">

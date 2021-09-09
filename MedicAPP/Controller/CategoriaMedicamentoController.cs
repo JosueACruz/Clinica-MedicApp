@@ -96,7 +96,6 @@ namespace MedicAPP.Controller
             return ret;
         }
 
-
         //Metodo para actualizar la categoria
         public bool actualizarCategoriaMedic(int id, string categoria, DataGridView dgv)
         {

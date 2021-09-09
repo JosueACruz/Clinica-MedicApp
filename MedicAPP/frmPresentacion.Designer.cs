@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPresentacion));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMedicamentos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -39,6 +38,8 @@
             this.txtPresentacion = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,18 +56,16 @@
             // 
             // dgvMedicamentos
             // 
+            this.dgvMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
             this.Column1});
             this.dgvMedicamentos.Location = new System.Drawing.Point(65, 215);
             this.dgvMedicamentos.Name = "dgvMedicamentos";
             this.dgvMedicamentos.Size = new System.Drawing.Size(839, 363);
             this.dgvMedicamentos.TabIndex = 34;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Presentaciones";
-            this.Column1.Name = "Column1";
+            this.dgvMedicamentos.Click += new System.EventHandler(this.dgvMedicamentos_Click);
             // 
             // btnBuscar
             // 
@@ -84,6 +83,7 @@
             this.btnBuscar.TabIndex = 33;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEditar
             // 
@@ -101,6 +101,7 @@
             this.btnEditar.TabIndex = 32;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -118,6 +119,7 @@
             this.btnEliminar.TabIndex = 31;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label2
             // 
@@ -156,6 +158,7 @@
             this.btnAgregar.TabIndex = 28;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnAtras
             // 
@@ -173,6 +176,16 @@
             this.btnAtras.TabIndex = 36;
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Id Presentaciones";
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Presentaciones";
+            this.Column1.Name = "Column1";
             // 
             // frmPresentacion
             // 
@@ -202,7 +215,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvMedicamentos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
@@ -210,5 +222,7 @@
         private System.Windows.Forms.TextBox txtPresentacion;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
