@@ -105,11 +105,18 @@ namespace MedicAPP.Controller
                 var resultado = MessageBox.Show("¿Seguro que quiere editar la presentacion: "+presentacion +"?", "MedicAPP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    objpresentacionMedicamento.actualiarPresentacioMedicamento(id, presentacion);
-                    dgv.Rows.Clear();
-                    cargarPresentacion(dgv);
-                    dgv.ClearSelection();
-                    ret = true;
+                    if (objpresentacionMedicamento.validar(presentacion))
+                    {
+                        MessageBox.Show("Ya existe la presentacion " + presentacion + ", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        objpresentacionMedicamento.actualiarPresentacioMedicamento(id, presentacion);
+                        dgv.Rows.Clear();
+                        cargarPresentacion(dgv);
+                        dgv.ClearSelection();
+                        ret = true;
+                    }
                 }
                 else if (resultado == DialogResult.No)
                 {

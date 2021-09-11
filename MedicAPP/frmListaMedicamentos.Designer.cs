@@ -56,6 +56,9 @@
             // 
             // dgvMedicamentos
             // 
+            this.dgvMedicamentos.AllowUserToAddRows = false;
+            this.dgvMedicamentos.AllowUserToDeleteRows = false;
+            this.dgvMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -64,6 +67,7 @@
             this.Column4});
             this.dgvMedicamentos.Location = new System.Drawing.Point(70, 142);
             this.dgvMedicamentos.Name = "dgvMedicamentos";
+            this.dgvMedicamentos.ReadOnly = true;
             this.dgvMedicamentos.Size = new System.Drawing.Size(850, 430);
             this.dgvMedicamentos.TabIndex = 26;
             // 
@@ -71,21 +75,25 @@
             // 
             this.Column1.HeaderText = "Medicamento";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Laboratorio";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Presentacion";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Categoria";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // label2
             // 

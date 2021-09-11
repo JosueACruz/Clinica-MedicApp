@@ -110,11 +110,18 @@ namespace MedicAPP.Controller
                 var resultado = MessageBox.Show("¿Seguro que quiere editar esta categoria?", "MedicAPP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(resultado == DialogResult.Yes) 
                 {
-                    objcategoriaModel.actualiarCategoriaMedicamento(id, categoria);
-                    dgv.Rows.Clear();
-                    cargarCategoriaMedic(dgv);
-                    dgv.ClearSelection();
-                    ret = true;
+                    if (objcategoriaModel.validar(categoria))
+                    {
+                        MessageBox.Show("Ya existe la categoria " + categoria + ", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        objcategoriaModel.actualiarCategoriaMedicamento(id, categoria);
+                        dgv.Rows.Clear();
+                        cargarCategoriaMedic(dgv);
+                        dgv.ClearSelection();
+                        ret = true;
+                    }
                 }
                 else if(resultado == DialogResult.No)
                 {

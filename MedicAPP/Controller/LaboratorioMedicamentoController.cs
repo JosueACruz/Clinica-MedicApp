@@ -103,11 +103,18 @@ namespace MedicAPP.Controller
                 var resultado = MessageBox.Show("¿Seguro que quiere editar este laboratorio?", "MedicAPP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    objlaboratorioModel.actualizarLaboratorioMedicamento(id, laboratorio);
-                    dgv.Rows.Clear();
-                    cargarLabratorioMedic(dgv);
-                    dgv.ClearSelection();
-                    ret = true;
+                    if(objlaboratorioModel.validar(laboratorio))
+                    {
+                        MessageBox.Show("Ya existe el laboratorio " + laboratorio + ", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        objlaboratorioModel.actualizarLaboratorioMedicamento(id, laboratorio);
+                        dgv.Rows.Clear();
+                        cargarLabratorioMedic(dgv);
+                        dgv.ClearSelection();
+                        ret = true;
+                    }
                 }
                 else if (resultado == DialogResult.No)
                 {
