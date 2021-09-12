@@ -13,6 +13,7 @@ namespace MedicAPP.Controller
     {
 
         ModelMedicamento objMedicamento = new ModelMedicamento();
+        LaboratorioMedicamentoController objLaboratorio = new LaboratorioMedicamentoController();
 
         public void cargarMedicamento(DataGridView dgv)
         {
@@ -145,6 +146,12 @@ namespace MedicAPP.Controller
                     dgv.Rows.Add(new object[] { idMedicamento, Medicamento, Laboratorio, Presentacion, Categoria });
                 }
             }
+        }
+
+        //llenar combobox laboratorio
+        public void llenarLaboratorio(ComboBox laboratorio)
+        {
+            //objLaboratorio.cargarLabratorioMedic();
         }
     }
 }
