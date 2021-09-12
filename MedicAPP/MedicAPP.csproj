@@ -298,7 +298,18 @@
   <ItemGroup>
     <None Include="resources\Close.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\search2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Eliminar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\save.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
