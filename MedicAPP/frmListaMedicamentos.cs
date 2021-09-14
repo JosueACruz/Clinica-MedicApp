@@ -34,6 +34,7 @@ namespace MedicAPP
             this.Location = new Point(270, 60);
             //Aqui cargar la lista de medicamentos
             medicController.cargarMedicamento(dgvMedicamentos);
+            medicController.llenarLaboratorio(cmbLaboratorio);
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace MedicAPP
 
         private void btnLaboratorio_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine(cmbLaboratorio.SelectedValue);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
