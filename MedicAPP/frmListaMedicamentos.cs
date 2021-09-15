@@ -35,6 +35,8 @@ namespace MedicAPP
             //Aqui cargar la lista de medicamentos
             medicController.cargarMedicamento(dgvMedicamentos);
             medicController.llenarLaboratorio(cmbLaboratorio);
+            medicController.llenarCategoria(cmbCategoria);
+            medicController.llenarPresentacion(cmbPresentacion);
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -70,7 +72,27 @@ namespace MedicAPP
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            string medicamento = txtNombre.Text;
+            int Laboratorio = (int)cmbLaboratorio.SelectedValue;
+            int Presentacion = (int)cmbPresentacion.SelectedValue;
+            int Categoria = (int)cmbCategoria.SelectedValue;
+            if (medicamento == "" || Laboratorio == 0 || Presentacion == 0 || Categoria == 0)
+            {
+                MessageBox.Show("Por favor llene todos los campos para ingresar el medicamento", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                bool ingre;
+                ingre = medicController.ingresarMedicamento(medicamento, Laboratorio, Presentacion, Categoria, dgvMedicamentos);
+                if(ingre)
+                {
+                    txtNombre.Text = "";
+                    txtNombre.Focus();
+                    cmbCategoria.SelectedIndex = 0;
+                    cmbLaboratorio.SelectedIndex = 0;
+                    cmbPresentacion.SelectedIndex = 0;
+                }
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -85,12 +107,12 @@ namespace MedicAPP
 
         private void btnPresentacion_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine(cmbPresentacion.SelectedValue);
         }
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine(cmbCategoria.SelectedValue);
         }
     }
 }

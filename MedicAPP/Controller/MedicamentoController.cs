@@ -14,6 +14,8 @@ namespace MedicAPP.Controller
 
         ModelMedicamento objMedicamento = new ModelMedicamento();
         ModelLaboratorioMedicamento objLaboratorio = new ModelLaboratorioMedicamento();
+        ModelCategoriaMedicamento objCategoria = new ModelCategoriaMedicamento();
+        ModelPresentacionMedicamento objPresentacion = new ModelPresentacionMedicamento();
 
         public void cargarMedicamento(DataGridView dgv)
         {
@@ -173,6 +175,48 @@ namespace MedicAPP.Controller
                 cmblaboratorio.DisplayMember = "Item2";
                 cmblaboratorio.ValueMember = "Item1";
                 
+            }
+        }
+
+        //llamar presentaciones para combobox
+        public void llenarPresentacion(ComboBox cmbpresentacion)
+        {
+            SqlDataReader sdr = objPresentacion.cargarPresentacioniaMedicamento();
+
+            if (sdr.HasRows)
+            {
+                //List<object> lista = new List<object>();
+                List<Tuple<Int32, String>> lista = new List<Tuple<int, string>>();
+                while (sdr.Read())
+                {
+                    string Presentacion = sdr[1].ToString();
+                    lista.Add(Tuple.Create<Int32, String>(sdr.GetInt32(0), Presentacion));
+                }
+                cmbpresentacion.DataSource = lista;
+                cmbpresentacion.DisplayMember = "Item2";
+                cmbpresentacion.ValueMember = "Item1";
+
+            }
+        }
+
+        //Llenar combobox de categoria
+        public void llenarCategoria(ComboBox cmbCategoria)
+        {
+            SqlDataReader sdr = objCategoria.cargarCategoriaMedicamento();
+
+            if (sdr.HasRows)
+            {
+                //List<object> lista = new List<object>();
+                List<Tuple<Int32, String>> lista = new List<Tuple<int, string>>();
+                while (sdr.Read())
+                {
+                    string Categoria = sdr[1].ToString();
+                    lista.Add(Tuple.Create<Int32, String>(sdr.GetInt32(0), Categoria));
+                }
+                cmbCategoria.DataSource = lista;
+                cmbCategoria.DisplayMember = "Item2";
+                cmbCategoria.ValueMember = "Item1";
+
             }
         }
     }
