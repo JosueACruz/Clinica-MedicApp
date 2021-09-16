@@ -53,8 +53,11 @@ namespace MedicAPP
             }
             else
             {
-                idMedicamento = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column2"].Value.ToString());
+                idMedicamento = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column5"].Value.ToString());
                 txtNombre.Text = dgvMedicamentos.CurrentRow.Cells["Column1"].Value.ToString();
+                cmbLaboratorio.SelectedItem = dgvMedicamentos.CurrentRow.Cells["Column2"].Value.ToString();
+                cmbPresentacion.DisplayMember = dgvMedicamentos.CurrentRow.Cells["Column3"].Value.ToString();
+                cmbCategoria.SelectedText = dgvMedicamentos.CurrentRow.Cells["Column4"].Value.ToString();
             }
         }
 
@@ -97,12 +100,43 @@ namespace MedicAPP
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            bool delt;
+            delt = medicController.eliminarMedicamento(idMedicamento, dgvMedicamentos);
+            if (delt)
+            {
+                txtNombre.Text = "";
+                txtNombre.Focus();
+                cmbCategoria.SelectedIndex = 0;
+                cmbLaboratorio.SelectedIndex = 0;
+                cmbPresentacion.SelectedIndex = 0;
+                idMedicamento = 0;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            string medicamento = txtNombre.Text;
+            int Laboratorio = (int)cmbLaboratorio.SelectedValue;
+            int Presentacion = (int)cmbPresentacion.SelectedValue;
+            int Categoria = (int)cmbCategoria.SelectedValue;
+            if (medicamento == "" || Laboratorio == 0 || Presentacion == 0 || Categoria == 0 || idMedicamento == 0)
+            {
+                MessageBox.Show("Por favor llene todos los campos para ingresar el medicamento", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                bool edit;
+                edit = medicController.actualizarMedicamento(idMedicamento, medicamento, Laboratorio, Presentacion, Categoria, dgvMedicamentos);
+                if (edit)
+                {
+                    idMedicamento = 0;
+                    txtNombre.Text = "";
+                    txtNombre.Focus();
+                    cmbCategoria.SelectedIndex = 0;
+                    cmbLaboratorio.SelectedIndex = 0;
+                    cmbPresentacion.SelectedIndex = 0;
+                }
+            }
         }
 
         private void btnPresentacion_Click(object sender, EventArgs e)
@@ -113,6 +147,11 @@ namespace MedicAPP
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             Console.WriteLine(cmbCategoria.SelectedValue);
+        }
+
+        private void dgvMedicamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
