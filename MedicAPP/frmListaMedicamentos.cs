@@ -22,6 +22,7 @@ namespace MedicAPP
         {
             InitializeComponent();
             dgvMedicamentos.RowHeadersVisible = false;
+            
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -55,9 +56,9 @@ namespace MedicAPP
             {
                 idMedicamento = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column5"].Value.ToString());
                 txtNombre.Text = dgvMedicamentos.CurrentRow.Cells["Column1"].Value.ToString();
-                cmbLaboratorio.SelectedItem = dgvMedicamentos.CurrentRow.Cells["Column2"].Value.ToString();
-                cmbPresentacion.DisplayMember = dgvMedicamentos.CurrentRow.Cells["Column3"].Value.ToString();
-                cmbCategoria.SelectedText = dgvMedicamentos.CurrentRow.Cells["Column4"].Value.ToString();
+                cmbLaboratorio.SelectedValue = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column6"].Value.ToString());
+                cmbPresentacion.SelectedValue = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column7"].Value.ToString());
+                cmbCategoria.SelectedValue = Convert.ToInt32(dgvMedicamentos.CurrentRow.Cells["Column8"].Value.ToString());
             }
         }
 

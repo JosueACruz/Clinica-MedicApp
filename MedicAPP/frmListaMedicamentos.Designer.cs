@@ -49,8 +49,11 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).BeginInit();
             this.SuspendLayout();
@@ -75,8 +78,11 @@
             this.dgvMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
             this.Column1,
+            this.Column6,
             this.Column2,
+            this.Column7,
             this.Column3,
+            this.Column8,
             this.Column4});
             this.dgvMedicamentos.Location = new System.Drawing.Point(70, 330);
             this.dgvMedicamentos.Name = "dgvMedicamentos";
@@ -315,6 +321,7 @@
             this.Column5.HeaderText = "ID";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
             // Column1
             // 
@@ -322,17 +329,38 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "idLaboratorio";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
             // Column2
             // 
             this.Column2.HeaderText = "Laboratorio";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "idPresentacion";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
             // Column3
             // 
             this.Column3.HeaderText = "Presentacion";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "idCategoria";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
             // 
             // Column4
             // 
@@ -395,8 +423,11 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

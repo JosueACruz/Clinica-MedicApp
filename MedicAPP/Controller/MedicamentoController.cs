@@ -26,10 +26,13 @@ namespace MedicAPP.Controller
                 {
                     int idMedicamento = int.Parse(sdr[0].ToString());
                     string Medicamento = sdr[1].ToString();
-                    string Laboratorio = sdr[2].ToString();
-                    string Presentacion = sdr[3].ToString();
-                    string Categoria = sdr[4].ToString();
-                    dgv.Rows.Add(new object[] { idMedicamento, Medicamento, Laboratorio, Presentacion, Categoria });
+                    int idLaboratorio = int.Parse(sdr[2].ToString());
+                    string Laboratorio = sdr[3].ToString();
+                    int idPresentacion = int.Parse(sdr[4].ToString());
+                    string Presentacion = sdr[5].ToString();
+                    int idCategoria = int.Parse(sdr[6].ToString());
+                    string Categoria = sdr[7].ToString();
+                    dgv.Rows.Add(new object[] { idMedicamento, Medicamento, idLaboratorio, Laboratorio, idPresentacion, Presentacion, idCategoria, Categoria });
                 }
             }
         }
@@ -142,10 +145,13 @@ namespace MedicAPP.Controller
                 {
                     int idMedicamento = int.Parse(sdr[0].ToString());
                     string Medicamento = sdr[1].ToString();
-                    string Laboratorio = sdr[2].ToString();
-                    string Presentacion = sdr[3].ToString();
-                    string Categoria = sdr[4].ToString();
-                    dgv.Rows.Add(new object[] { idMedicamento, Medicamento, Laboratorio, Presentacion, Categoria });
+                    int idLaboratorio = int.Parse(sdr[2].ToString());
+                    string Laboratorio = sdr[3].ToString();
+                    int idPresentacion = int.Parse(sdr[4].ToString());
+                    string Presentacion = sdr[5].ToString();
+                    int idCategoria = int.Parse(sdr[6].ToString());
+                    string Categoria = sdr[7].ToString();
+                    dgv.Rows.Add(new object[] { idMedicamento, Medicamento, idLaboratorio, Laboratorio, idPresentacion, Presentacion, idCategoria, Categoria });
                 }
             }
         }

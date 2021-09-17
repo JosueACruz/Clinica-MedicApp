@@ -15,7 +15,7 @@ namespace MedicAPP.Model
         public SqlDataReader cargarMedicamentos()
         {
             Conexion cnx = new Conexion();
-            string Consulta = "SELECT idMedicamento, med.Nombre, lab.Nombre as 'Laboratorio', pres.Nombre as 'Presentacion', cat.Nombre as 'Categoria' FROM Medicamento med inner join MedicamentoLaboratorio lab ON med.idLaboratorio =lab.idLaboratorio INNER JOIN MedicamentoPresentacion pres ON med.idPresentacion = pres.idPresentacion INNER JOIN MedicamentoCategoria cat ON med.idCategoria = cat.idCategoria;";
+            string Consulta = "SELECT idMedicamento, med.Nombre, lab.idLaboratorio, lab.Nombre as 'Laboratorio', pres.idPresentacion, pres.Nombre as 'Presentacion', cat.idCategoria, cat.Nombre as 'Categoria' FROM Medicamento med inner join MedicamentoLaboratorio lab ON med.idLaboratorio =lab.idLaboratorio INNER JOIN MedicamentoPresentacion pres ON med.idPresentacion = pres.idPresentacion INNER JOIN MedicamentoCategoria cat ON med.idCategoria = cat.idCategoria;";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(Consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -96,7 +96,7 @@ namespace MedicAPP.Model
         public SqlDataReader buscarMedicamento(string medicamento)
         {
             Conexion cnx = new Conexion();
-            string consulta = "SELECT idMedicamento, med.Nombre, lab.Nombre as 'Laboratorio', pres.Nombre as 'Presentacion', cat.Nombre as 'Categoria' FROM Medicamento med inner join MedicamentoLaboratorio lab ON med.idLaboratorio =lab.idLaboratorio INNER JOIN MedicamentoPresentacion pres ON med.idPresentacion = pres.idPresentacion INNER JOIN MedicamentoCategoria cat ON med.idCategoria = cat.idCategoria WHERE med.Nombre like '" + medicamento + "%'";
+            string consulta = "SELECT idMedicamento, med.Nombre, lab.idLaboratorio, lab.Nombre as 'Laboratorio', pres.idPresentacion, pres.Nombre as 'Presentacion', cat.idCategoria, cat.Nombre as 'Categoria' FROM Medicamento med inner join MedicamentoLaboratorio lab ON med.idLaboratorio =lab.idLaboratorio INNER JOIN MedicamentoPresentacion pres ON med.idPresentacion = pres.idPresentacion INNER JOIN MedicamentoCategoria cat ON med.idCategoria = cat.idCategoria WHERE med.Nombre like '" + medicamento + "%'";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();
