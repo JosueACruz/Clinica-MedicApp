@@ -63,6 +63,8 @@
       <DependentUpon>AgendarCitacs.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\CategoriaMedicamentoController.cs" />
+    <Compile Include="Controller\ExamenCategoriaController.cs" />
+    <Compile Include="Controller\ExamenController.cs" />
     <Compile Include="Controller\LaboratorioMedicamentoController.cs" />
     <Compile Include="Controller\loginController.cs" />
     <Compile Include="Controller\MedicamentoController.cs" />
@@ -191,6 +193,8 @@
       <DependentUpon>MedicapDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelCategoriaMedicamento.cs" />
+    <Compile Include="Model\ModelExamen.cs" />
+    <Compile Include="Model\ModelExamenCategoria.cs" />
     <Compile Include="Model\ModelLaboratorioMedicamento.cs" />
     <Compile Include="Model\ModelLogin.cs" />
     <Compile Include="Model\ModelMedicamento.cs" />
