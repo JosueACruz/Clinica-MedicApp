@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MedicAPP.Model
 {
@@ -34,7 +35,7 @@ namespace MedicAPP.Model
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al guardar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -56,7 +57,7 @@ namespace MedicAPP.Model
             }
             catch (Exception ex)
             {
-                // MessageBox.Show("Error al vaildar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al vaildar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -72,7 +73,7 @@ namespace MedicAPP.Model
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al editar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -88,12 +89,12 @@ namespace MedicAPP.Model
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al eliminar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        public SqlDataReader buscarMedicamento(string categoria)
+        public SqlDataReader buscarCategoriaMedicamento(string categoria)
         {
             Conexion cnx = new Conexion();
             string consulta = "Select * from ExamenCategoria WHERE Nombre like '" + categoria + "%'";
