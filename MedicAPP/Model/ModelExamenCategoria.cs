@@ -29,7 +29,7 @@ namespace MedicAPP.Model
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "INSERT INTO ExamenCategoria values ('" + Categoria + "'," + Descripcion + ")";
+                string consulta = "INSERT INTO ExamenCategoria values ('" + Categoria + "','" + Descripcion + "')";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -67,13 +67,13 @@ namespace MedicAPP.Model
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "update ExamenCategoria set Nombre = '" + categoria+ "', idCategoria= " + descripcion + " where idCategoria = " + id;
+                string consulta = "update ExamenCategoria set Nombre = '" + categoria+ "', Descripcion = '" + descripcion + "' where idCategoria = " + id;
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar la categoria " + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

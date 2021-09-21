@@ -107,8 +107,10 @@ namespace MedicAPP.Controller
                 var resultado = MessageBox.Show("¿Seguro que quiere editar esta categoria?", "MedicAPP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
+                    //Debe validarse que se pueda ecribir de igual manera la misma categoria y solo editar la descripcion
                     if (objcategoriaModel.validar(categoria))
                     {
+                        
                         MessageBox.Show("Ya existe la categoria " + categoria + ", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
