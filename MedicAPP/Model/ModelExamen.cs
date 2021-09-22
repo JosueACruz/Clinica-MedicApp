@@ -16,14 +16,14 @@ namespace MedicAPP.Model
         public SqlDataReader cargarExamen()
         {
             Conexion cnx = new Conexion();
-            string Consulta = "select ex.idCategoria, ex.Nombre, ex.Descripcion, ec.Nombre as 'Categoria' from Examen ex INNER JOIN ExamenCategoria ec ON ex.idCategoria = ec.idCategoria";
+            string Consulta = "select ex.idExamen, ex.Nombre, ex.Descripcion, ex.idCategoria ,ec.Nombre as 'Categoria' from Examen ex INNER JOIN ExamenCategoria ec ON ex.idCategoria = ec.idCategoria";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(Consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();
 
             return sdr;
         }
-        public bool insertarMedicamento(string examen, string descripcion, int categoria)
+        public bool insertarExamen(string examen, string descripcion, int categoria)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace MedicAPP.Model
             }
         }
 
-        public bool actualiarMedicamento(int id, string examen, string descripcion, int categoria)
+        public bool actualiarExamen(int id, string examen, string descripcion, int categoria)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace MedicAPP.Model
             }
         }
 
-        public bool eliminarMedicamento(int id)
+        public bool eliminarexamen(int id)
         {
             try
             {
@@ -92,10 +92,10 @@ namespace MedicAPP.Model
             }
         }
 
-        public SqlDataReader buscarMedicamento(string examen)
+        public SqlDataReader buscarExamen(string examen)
         {
             Conexion cnx = new Conexion();
-            string consulta = "select ex.idCategoria, ex.Nombre, ex.Descripcion, ec.Nombre as 'Categoria' from Examen ex INNER JOIN ExamenCategoria ec ON ex.idCategoria = ec.idCategoria where ex.Nombre like '" + examen + "%'";
+            string consulta = "select ex.idExamen, ex.Nombre, ex.Descripcion, ex.idCategoria, ec.Nombre as 'Categoria' from Examen ex INNER JOIN ExamenCategoria ec ON ex.idCategoria = ec.idCategoria where ex.Nombre like '" + examen + "%'";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();

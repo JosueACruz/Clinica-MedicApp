@@ -30,23 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExamenes));
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dgvExamen = new System.Windows.Forms.DataGridView();
+            this.btnCategoria = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtExamen = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExamen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,43 +61,45 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "EXAMENES";
             // 
-            // dataGridView1
+            // dgvExamen
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvExamen.AllowUserToAddRows = false;
+            this.dgvExamen.AllowUserToDeleteRows = false;
+            this.dgvExamen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvExamen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvExamen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExamen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column1,
             this.Column2,
+            this.Column5,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(44, 71);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(602, 498);
-            this.dataGridView1.TabIndex = 11;
+            this.dgvExamen.Location = new System.Drawing.Point(44, 71);
+            this.dgvExamen.Name = "dgvExamen";
+            this.dgvExamen.ReadOnly = true;
+            this.dgvExamen.RowHeadersVisible = false;
+            this.dgvExamen.Size = new System.Drawing.Size(602, 498);
+            this.dgvExamen.TabIndex = 11;
+            this.dgvExamen.Click += new System.EventHandler(this.dgvExamen_Click);
             // 
-            // button2
+            // btnCategoria
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(741, 500);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 69);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "CATEGORIA DE EXAMEN";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnCategoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategoria.Font = new System.Drawing.Font("Century Gothic", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnCategoria.Image")));
+            this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCategoria.Location = new System.Drawing.Point(741, 500);
+            this.btnCategoria.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCategoria.Name = "btnCategoria";
+            this.btnCategoria.Size = new System.Drawing.Size(216, 69);
+            this.btnCategoria.TabIndex = 20;
+            this.btnCategoria.Text = "CATEGORIA DE EXAMEN";
+            this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCategoria.UseVisualStyleBackColor = false;
+            this.btnCategoria.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnBuscar
             // 
@@ -136,15 +139,15 @@
             this.txtExamen.Size = new System.Drawing.Size(333, 33);
             this.txtExamen.TabIndex = 22;
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(675, 197);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(333, 118);
-            this.textBox1.TabIndex = 23;
+            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescripcion.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.txtDescripcion.Location = new System.Drawing.Point(675, 197);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(333, 118);
+            this.txtDescripcion.TabIndex = 23;
             // 
             // label3
             // 
@@ -168,42 +171,14 @@
             this.label4.TabIndex = 79;
             this.label4.Text = "Categoria:";
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(675, 362);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(333, 28);
-            this.comboBox1.TabIndex = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 101.5228F;
-            this.Column4.HeaderText = "ID";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 99.49239F;
-            this.Column1.HeaderText = "Examen";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 99.49239F;
-            this.Column2.HeaderText = "Descripcion";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 99.49239F;
-            this.Column3.HeaderText = "Categoria";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(675, 362);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(333, 28);
+            this.cmbCategoria.TabIndex = 80;
             // 
             // btnAgregar
             // 
@@ -259,6 +234,41 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 101.5228F;
+            this.Column4.HeaderText = "ID";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 99.49239F;
+            this.Column1.HeaderText = "Examen";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 99.49239F;
+            this.Column2.HeaderText = "Descripcion";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "idCategoria";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 99.49239F;
+            this.Column3.HeaderText = "Categoria";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // frmExamenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,20 +277,21 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtExamen);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCategoria);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvExamen);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmExamenes";
             this.Text = "frmExamenes";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmExamenes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExamen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,20 +301,21 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgvExamen;
+        private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtExamen;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
