@@ -16,5 +16,16 @@ namespace MedicAPP
         {
             InitializeComponent();
         }
+
+        private void btnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+            frmConsultaNueva frm = new frmConsultaNueva();
+            frm.Show();
+        }
+
+        private void btnConsultaporCita_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,5 +32,15 @@ namespace MedicAPP
         {
 
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmConsultaNueva_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(270, 60);
+        }
     }
 }

@@ -61,6 +61,7 @@
             this.btnNuevaConsulta.TabIndex = 12;
             this.btnNuevaConsulta.Text = "NUEVA CONSULTA";
             this.btnNuevaConsulta.UseVisualStyleBackColor = false;
+            this.btnNuevaConsulta.Click += new System.EventHandler(this.btnNuevaConsulta_Click);
             // 
             // btnConsultaporCita
             // 
@@ -78,6 +79,7 @@
             this.btnConsultaporCita.TabIndex = 13;
             this.btnConsultaporCita.Text = "CONSULTA POR CITA";
             this.btnConsultaporCita.UseVisualStyleBackColor = false;
+            this.btnConsultaporCita.Click += new System.EventHandler(this.btnConsultaporCita_Click);
             // 
             // frmConsultas
             // 

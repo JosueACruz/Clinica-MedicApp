@@ -68,6 +68,7 @@
     <Compile Include="Controller\LaboratorioMedicamentoController.cs" />
     <Compile Include="Controller\loginController.cs" />
     <Compile Include="Controller\MedicamentoController.cs" />
+    <Compile Include="Controller\PacientesController.cs" />
     <Compile Include="Controller\PresentacionMedicamentoController.cs" />
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
@@ -198,6 +199,7 @@
     <Compile Include="Model\ModelLaboratorioMedicamento.cs" />
     <Compile Include="Model\ModelLogin.cs" />
     <Compile Include="Model\ModelMedicamento.cs" />
+    <Compile Include="Model\ModelPacientes.cs" />
     <Compile Include="Model\ModelPresentacionMedicamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

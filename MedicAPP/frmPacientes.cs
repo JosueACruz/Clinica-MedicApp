@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicAPP.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace MedicAPP
 {
     public partial class frmPacientes : Form
     {
+        PacientesController objPacienteController = new PacientesController();
+
+        int seleccionado = 0;
+        int idPaciente = 0;
         public frmPacientes()
         {
             InitializeComponent();
+            dgvPacientes.RowHeadersVisible = false;
         }
 
         private void btnHistorialMedpaciente_Click(object sender, EventArgs e)
@@ -27,6 +33,31 @@ namespace MedicAPP
         {
             frmConsultaNueva frm = new frmConsultaNueva();
             frm.Show();
+        }
+
+        private void frmPacientes_Load(object sender, EventArgs e)
+        {
+            objPacienteController.cargarPaciente(dgvPacientes);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPacientes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
