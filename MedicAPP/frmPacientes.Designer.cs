@@ -55,7 +55,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.chboxResponsable = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtParentesco = new System.Windows.Forms.TextBox();
             this.txtNombreRespobsable = new System.Windows.Forms.TextBox();
             this.btnNuevaConsulta = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -310,17 +310,18 @@
             this.chboxResponsable.TabIndex = 32;
             this.chboxResponsable.Text = "RESPONSABLE DE PACIENTE?";
             this.chboxResponsable.UseVisualStyleBackColor = true;
+            this.chboxResponsable.CheckedChanged += new System.EventHandler(this.chboxResponsable_CheckedChanged);
             // 
-            // textBox1
+            // txtParentesco
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(723, 309);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(360, 33);
-            this.textBox1.TabIndex = 35;
-            this.textBox1.Text = "Parentesco con el paciente";
+            this.txtParentesco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtParentesco.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.txtParentesco.Location = new System.Drawing.Point(723, 309);
+            this.txtParentesco.Multiline = true;
+            this.txtParentesco.Name = "txtParentesco";
+            this.txtParentesco.Size = new System.Drawing.Size(360, 33);
+            this.txtParentesco.TabIndex = 35;
+            this.txtParentesco.Text = "Parentesco con el paciente";
             // 
             // txtNombreRespobsable
             // 
@@ -331,7 +332,7 @@
             this.txtNombreRespobsable.Name = "txtNombreRespobsable";
             this.txtNombreRespobsable.Size = new System.Drawing.Size(360, 33);
             this.txtNombreRespobsable.TabIndex = 34;
-            this.txtNombreRespobsable.Text = "Nombre del Responsable";
+            this.txtNombreRespobsable.Tag = "Nombre del Responsable";
             // 
             // btnNuevaConsulta
             // 
@@ -366,6 +367,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(35, 33);
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnCitasPorPaciente
             // 
@@ -461,7 +463,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 665);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtParentesco);
             this.Controls.Add(this.txtNombreRespobsable);
             this.Controls.Add(this.chboxResponsable);
             this.Controls.Add(this.btnNuevaConsulta);
@@ -523,7 +525,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnNuevaConsulta;
         private System.Windows.Forms.CheckBox chboxResponsable;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtParentesco;
         private System.Windows.Forms.TextBox txtNombreRespobsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
