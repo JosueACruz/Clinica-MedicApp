@@ -23,7 +23,7 @@ namespace MedicAPP.Model
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "INSERT INTO Paciente values  ('" + Nombre + "', '"+ Apellido+"', "+ fecha +", '"+cel+"', '"+direccion+"', '"+DUI+"', '"+responsable+"', '"+parentesco+"')";
+                string consulta = "INSERT INTO Paciente values  ('" + Nombre + "', '"+ Apellido+"', '"+ fecha +"', '"+cel+"', '"+direccion+"', '"+DUI+"', '"+responsable+"', '"+parentesco+"')";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -61,7 +61,7 @@ namespace MedicAPP.Model
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "UPDATE Paciente set Nombre = '"+ Nombre + "', Apellido = '"+Apellido+ "', FechaNacimiento = "+fecha+ ", Celular = '"+cel+ "', Direccion = '"+direccion+ "', DUI = '"+DUI+ "', Responsable = '"+responsable+ "', Parentesco = '"+parentesco+"' WHERE idPaciente = " + id;
+                string consulta = "UPDATE Paciente set Nombre = '"+ Nombre + "', Apellido = '"+Apellido+ "', FechaNacimiento = '"+fecha+ "', Celular = '"+cel+ "', Direccion = '"+direccion+ "', DUI = '"+DUI+ "', Responsable = '"+responsable+ "', Parentesco = '"+parentesco+"' WHERE idPaciente = " + id;
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
