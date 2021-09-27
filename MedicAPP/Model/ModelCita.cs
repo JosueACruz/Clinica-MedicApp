@@ -60,39 +60,39 @@ namespace MedicAPP.Model
             }
         }
 
-        public bool actualizarCita(int id, string categoria)
+        public bool actualizarCita(int id, int paciente, DateTime fecha, string hora)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "update MedicamentoCategoria set Nombre = '" + categoria + "' where idCategoria = " + id;
+                string consulta = "update Cita set idPaciente = "+ paciente +", Fecha = '"+ fecha +"', Hora = '"+ hora +"' WHERE idCita =  " + id;
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar la cita" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        public bool eliminarCategoriaMedicamento(int id)
+        public bool eliminarCita(int id)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "delete from MedicamentoCategoria where idCategoria = '" + id + "'";
+                string consulta = "delete from cita where idCategoria = '" + id + "'";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar la categoria" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar la cita" + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        public SqlDataReader buscarCategoriaMedicamento(string paciente)
+        public SqlDataReader buscarCita(string paciente)
         {
             Conexion cnx = new Conexion();
             string consulta = "SELECT ci.idCita, ci.idPaciente, (pa. Nombre + ' '+ pa.Apellido) as 'Paciente', ci.Fecha, ci.Hora FROM Cita ci INNER JOIN Paciente pa ON ci.idPaciente = pa.idPaciente where pa.Nombre lIKE '"+ paciente +"%' OR pa.Apellido like '"+paciente+"%'";
