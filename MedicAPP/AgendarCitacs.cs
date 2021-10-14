@@ -24,8 +24,8 @@ namespace MedicAPP
 
         private void btnAgendar_Click(object sender, EventArgs e)
         {
-            frmCitaNueva frm = new frmCitaNueva();
-            frm.Show();
+            //frmCitaNueva frm = new frmCitaNueva();
+            //frm.Show();
         }
     }
 }

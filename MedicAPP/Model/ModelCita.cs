@@ -14,7 +14,7 @@ namespace MedicAPP.Model
         public SqlDataReader cargarCita()
         {
             Conexion cnx = new Conexion();
-            string Consulta = "SELECT ci.idCita, ci.idPaciente, (pa. Nombre + ' '+ pa.Apellido) as 'Paciente', ci.Fecha, ci.Hora FROM Cita ci INNER JOIN Paciente pa ON ci.idPaciente = pa.idPaciente;";
+            string Consulta = "SELECT ci.idCita, ci.idPaciente, (pa. Nombre + ' '+ pa.Apellido) as 'Paciente', ci.Fecha, ci.Hora, ci.AmPm FROM Cita ci INNER JOIN Paciente pa ON ci.idPaciente = pa.idPaciente;";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(Consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -22,12 +22,12 @@ namespace MedicAPP.Model
             return sdr;
         }
 
-        public bool insertarCita(int paciente, DateTime fecha, string hora)
+        public bool insertarCita(int paciente, DateTime fecha, string hora, string AmPm)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "INSERT INTO Cita values ("+paciente+", '"+fecha+"', '"+hora+"')";
+                string consulta = "INSERT INTO Cita values ("+paciente+", '"+fecha+"', '"+hora+"', '"+ AmPm +"')";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -39,12 +39,12 @@ namespace MedicAPP.Model
         }
 
         //Validando para saber si ya existe la categoria a ingresar
-        public bool validar(DateTime fecha, string hora)
+        public bool validar(DateTime fecha, string hora, string AmPm)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "SELECT * FROM Cita where fecha = '"+fecha+"' and Hora = '"+hora+"'";
+                string consulta = "SELECT * FROM Cita where fecha = '"+fecha+"' and Hora = '"+hora+"' and AmPm = '"+ AmPm +"'";
                 DataSet ds = cnx.Conx(consulta);
                 if (ds.Tables[0].Rows.Count != 0)
                 {
@@ -60,12 +60,12 @@ namespace MedicAPP.Model
             }
         }
 
-        public bool actualizarCita(int id, int paciente, DateTime fecha, string hora)
+        public bool actualizarCita(int id, int paciente, DateTime fecha, string hora, string AmPm)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "update Cita set idPaciente = "+ paciente +", Fecha = '"+ fecha +"', Hora = '"+ hora +"' WHERE idCita =  " + id;
+                string consulta = "update Cita set idPaciente = "+ paciente +", Fecha = '"+ fecha +"', Hora = '"+ hora +"', AmPm ='"+ AmPm +"' WHERE idCita =  " + id;
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -81,7 +81,7 @@ namespace MedicAPP.Model
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "delete from cita where idCategoria = '" + id + "'";
+                string consulta = "delete from cita where idCita = '" + id + "'";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -95,7 +95,7 @@ namespace MedicAPP.Model
         public SqlDataReader buscarCita(string paciente)
         {
             Conexion cnx = new Conexion();
-            string consulta = "SELECT ci.idCita, ci.idPaciente, (pa. Nombre + ' '+ pa.Apellido) as 'Paciente', ci.Fecha, ci.Hora FROM Cita ci INNER JOIN Paciente pa ON ci.idPaciente = pa.idPaciente where pa.Nombre lIKE '"+ paciente +"%' OR pa.Apellido like '"+paciente+"%'";
+            string consulta = "SELECT ci.idCita, ci.idPaciente, (pa. Nombre + ' '+ pa.Apellido) as 'Paciente', ci.Fecha, ci.Hora, ci.AmPm FROM Cita ci INNER JOIN Paciente pa ON ci.idPaciente = pa.idPaciente where pa.Nombre lIKE '" + paciente +"%' OR pa.Apellido like '"+paciente+"%'";
             SqlConnection con = cnx.Conectar();
             SqlCommand cmd = new SqlCommand(consulta, con);
             SqlDataReader sdr = cmd.ExecuteReader();

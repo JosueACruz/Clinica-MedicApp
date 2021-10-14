@@ -12,6 +12,7 @@ namespace MedicAPP.Controller
     class CitaController
     {
         ModelCita objCita = new ModelCita();
+        ModelPacientes objPaciente = new ModelPacientes();
 
         public void cargarCita(DataGridView dgv)
         {
@@ -25,33 +26,34 @@ namespace MedicAPP.Controller
                     string Paciente = sdr[2].ToString();
                     string Fecha = sdr[3].ToString();
                     string hora = sdr[4].ToString();
-                    dgv.Rows.Add(new object[] { idCita, idPaciente, Paciente, Fecha, hora });
+                    string AmPm = sdr[5].ToString();
+                    dgv.Rows.Add(new object[] { idCita, idPaciente, Paciente, Fecha, hora + ' ' + AmPm });
                 }
             }
             //return dgv;
         }
 
         //Metodo para crear una nueva categoria
-        public bool ingresarCita(int paciente, DateTime fecha, string hora, DataGridView dgv)
+        public bool ingresarCita(int paciente, DateTime fecha, string hora, string AmPm, DataGridView dgv)
         {
-            if (paciente == 0 || hora.Length == 0)
+            if (paciente == 0 || hora.Length == 0 || AmPm.Length == 0)
             {
                 MessageBox.Show("Debe agregar datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if( fecha > DateTime.Now) 
+            else if( fecha <= DateTime.Now) 
             {
                 MessageBox.Show("Por favor ingrese una fecha valida, mayor al dia de hoy", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (objCita.validar(fecha, hora))
+                if (objCita.validar(fecha, hora, AmPm))
                 {
-                    MessageBox.Show("Ya existe una cita agendada para la fecha: " + fecha + " y hora: " + hora +", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una cita agendada para la fecha: " + fecha + " y hora: " + hora + " "+ AmPm +", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     bool ins;
-                    ins = objCita.insertarCita(paciente, fecha, hora);
+                    ins = objCita.insertarCita(paciente, fecha, hora, AmPm);
                     if (ins)
                     {
                         MessageBox.Show("Se registró la cita satisfactoriamente", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -96,7 +98,7 @@ namespace MedicAPP.Controller
         }
 
         //Metodo para actualizar la categoria
-        public bool actualizarCita(int id, int paciente, DateTime fecha, string hora, DataGridView dgv)
+        public bool actualizarCita(int id, int paciente, DateTime fecha, string hora, string AmPm, DataGridView dgv)
         {
             bool ret = false;
             if(id == 0)
@@ -119,13 +121,13 @@ namespace MedicAPP.Controller
                 var resultado = MessageBox.Show("¿Seguro que quiere editar esta cita?", "MedicAPP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    if (objCita.validar(fecha, hora))
+                    if (objCita.validar(fecha, hora, AmPm))
                     {
-                        MessageBox.Show("Ya existe una cita para el dia: " + fecha+ " a las: "+ hora +", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ya existe una cita para el dia: " + fecha+ " a las: "+ hora +" "+AmPm +", Favor revisar los datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        objCita.actualizarCita(id, paciente, fecha, hora);
+                        objCita.actualizarCita(id, paciente, fecha, hora, AmPm);
                         dgv.Rows.Clear();
                         cargarCita(dgv);
                         dgv.ClearSelection();
@@ -156,8 +158,34 @@ namespace MedicAPP.Controller
                     string Paciente = sdr[2].ToString();
                     string Fecha = sdr[3].ToString();
                     string hora = sdr[4].ToString();
-                    dgv.Rows.Add(new object[] { idCita, idPaciente, Paciente, Fecha, hora });
+                    string AmPm = sdr[5].ToString();
+                    dgv.Rows.Add(new object[] { idCita, idPaciente, Paciente, Fecha, hora + ' ' + AmPm });
                 }
+            }
+        }
+
+        public void cargarPacientes(ComboBox cmbpacientes)
+        {
+            SqlDataReader sdr = objPaciente.cargarPaciente();
+            if (sdr.HasRows)
+            {
+                List<Tuple<Int32, String>> lista = new List<Tuple<int, string>>();
+                while (sdr.Read())
+                {
+                    int idPaciente = int.Parse(sdr[0].ToString());
+                    string Nombre = sdr[1].ToString();
+                    string Apellido = sdr[2].ToString();
+                    string fecha = sdr[3].ToString();
+                    string celular = sdr[4].ToString();
+                    string direccion = sdr[5].ToString();
+                    string Dui = sdr[6].ToString();
+                    string responsable = sdr[7].ToString();
+                    string parentesco = sdr[8].ToString();
+                    lista.Add(Tuple.Create<Int32, String>(sdr.GetInt32(0), Nombre + " " + Apellido));
+                }
+                cmbpacientes.DataSource = lista;
+                cmbpacientes.DisplayMember = "Item2";
+                cmbpacientes.ValueMember = "Item1";
             }
         }
     }
