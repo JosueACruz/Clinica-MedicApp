@@ -15,11 +15,29 @@ namespace MedicAPP
     {
         CitaController objCitaController = new CitaController();
 
-        DataGridView Dgv;
+        DataGridView Dgv; 
+        //Constructor cuando se ingresa una nueva cita
         public frmCitaNueva(DataGridView dgv)
         {
             InitializeComponent();
             this.Dgv = dgv;
+        }
+
+        //El nuevo constructor para cuando se necesite actualizar una cita
+        int Cita;
+        int Cliente;
+        DateTime Fecha;
+        string Hora;
+        string AmPm;
+        public frmCitaNueva(int cita, int cliente, DateTime fecha, string hora, string AmPm1, DataGridView dgv)
+        {
+            InitializeComponent();
+            this.Dgv = dgv;
+            this.Cita = cita;
+            this.Cliente = cliente;
+            this.Fecha = fecha;
+            this.Hora = hora;
+            this.AmPm = AmPm1;
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -31,6 +49,14 @@ namespace MedicAPP
         {
             this.Location = new Point(270, 60);
             objCitaController.cargarPacientes(cmbPaciente);
+            Console.WriteLine(Cita);
+            if(Cita >= 1)
+            {
+                cmbPaciente.SelectedValue = Cliente;
+                cmbHora.Text = Hora;
+                cmbAmPm.Text = AmPm;
+                dtFecha.Value = Fecha;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

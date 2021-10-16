@@ -16,6 +16,13 @@ namespace MedicAPP
         CitaController objCitaController = new CitaController();
         int seleccionado = 0;
         int idCita = 0;
+
+        int idPaciente1;
+        string paciente1;
+        DateTime fecha1;
+        string hora1;
+        string AmPm1;
+
         public frmCitas()
         {
             InitializeComponent();
@@ -55,6 +62,15 @@ namespace MedicAPP
             {
                 idCita = Convert.ToInt32(dgvCitas.CurrentRow.Cells["Column3"].Value.ToString());
                 txtBuscar.Text = dgvCitas.CurrentRow.Cells["Column1"].Value.ToString();
+
+                idPaciente1 = Convert.ToInt32(dgvCitas.CurrentRow.Cells["Column4"].Value.ToString());
+                paciente1 = dgvCitas.CurrentRow.Cells["Column1"].Value.ToString();
+                fecha1 = Convert.ToDateTime(dgvCitas.CurrentRow.Cells["Column2"].Value.ToString());
+                string split = dgvCitas.CurrentRow.Cells["Column5"].Value.ToString();
+                List<string> list = new List<string>();
+                list = split.Split(' ').ToList();
+                hora1 = list[0].ToString();
+                AmPm1 = list[1].ToString();
             }
         }
 
@@ -70,6 +86,12 @@ namespace MedicAPP
             objCitaController.buscarcita(nombreCliente, dgvCitas);
             dgvCitas.ClearSelection();
             idCita = 0;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            frmCitaNueva frm = new frmCitaNueva(idCita, idPaciente1, fecha1, hora1, AmPm1, dgvCitas);
+            frm.Show();
         }
     }
 }
