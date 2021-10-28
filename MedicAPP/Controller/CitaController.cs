@@ -111,7 +111,7 @@ namespace MedicAPP.Controller
                 MessageBox.Show("Debe agregar datos", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ret = false;
             }
-            else if (fecha > DateTime.Now)
+            else if (fecha <= DateTime.Now)
             {
                 MessageBox.Show("Por favor ingrese una fecha valida, mayor al dia de hoy", "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ret = false;

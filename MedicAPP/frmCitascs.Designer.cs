@@ -110,11 +110,12 @@
             // 
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.txtBuscar.Location = new System.Drawing.Point(613, 54);
-            this.txtBuscar.Multiline = true;
+            this.txtBuscar.Location = new System.Drawing.Point(613, 59);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(311, 33);
+            this.txtBuscar.Size = new System.Drawing.Size(311, 24);
             this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
             // 
             // label1
             // 
@@ -258,7 +259,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -268,5 +268,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

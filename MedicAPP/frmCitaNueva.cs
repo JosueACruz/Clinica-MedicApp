@@ -28,7 +28,7 @@ namespace MedicAPP
         int Cliente;
         DateTime Fecha;
         string Hora;
-        string AmPm;
+        string AmPm2;
         public frmCitaNueva(int cita, int cliente, DateTime fecha, string hora, string AmPm1, DataGridView dgv)
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace MedicAPP
             this.Cliente = cliente;
             this.Fecha = fecha;
             this.Hora = hora;
-            this.AmPm = AmPm1;
+            this.AmPm2 = AmPm1;
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -53,9 +53,23 @@ namespace MedicAPP
             if(Cita >= 1)
             {
                 cmbPaciente.SelectedValue = Cliente;
-                cmbHora.Text = Hora;
-                cmbAmPm.Text = AmPm;
+                cmbAmPm.Text = AmPm2;
                 dtFecha.Value = Fecha;
+
+                string split = Hora;
+                List<string> list = new List<string>();
+                list = split.Split(':').ToList();
+                string horas = list[0].ToString();
+                string minutos = list[1].ToString();
+                string horaCompleta = horas + ":" + minutos;
+                cmbHora.Text = horaCompleta;
+                /*
+                string split = dgvCitas.CurrentRow.Cells["Column5"].Value.ToString();
+                List<string> list = new List<string>();
+                list = split.Split(' ').ToList();
+                hora1 = list[0].ToString();
+                AmPm1 = list[1].ToString();
+                */
             }
         }
 
@@ -66,11 +80,25 @@ namespace MedicAPP
             int paciente = (int)cmbPaciente.SelectedValue;
             string AmPm = (string)cmbAmPm.Text;
             bool ingre;
-            ingre = objCitaController.ingresarCita(paciente, fecha, hora, AmPm, Dgv);
-            if(ingre)
+            if (Cita >= 1)
             {
-                this.Close();
+                //Actualizar
+                ingre = objCitaController.actualizarCita(Cita, paciente, fecha, hora, AmPm, Dgv);
+                if(ingre)
+                {
+                    this.Close();
+                }
             }
+            else
+            {
+                //Insertar
+                ingre = objCitaController.ingresarCita(paciente, fecha, hora, AmPm, Dgv);
+                if (ingre)
+                {
+                    this.Close();
+                }
+            }
+            
         }
     }
 }

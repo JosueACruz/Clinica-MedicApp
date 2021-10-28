@@ -25,7 +25,9 @@ namespace MedicAPP
 
         private void btnConsultaporCita_Click(object sender, EventArgs e)
         {
-
+            //Aqui deberia mandar a ver las citas y desde ahi seleccionar la cita que se peinsa atender
+            frmConsultaNueva frm = new frmConsultaNueva();
+            frm.Show();
         }
     }
 }

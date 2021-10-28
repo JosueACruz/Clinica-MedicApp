@@ -93,5 +93,21 @@ namespace MedicAPP
             frmCitaNueva frm = new frmCitaNueva(idCita, idPaciente1, fecha1, hora1, AmPm1, dgvCitas);
             frm.Show();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if(txtBuscar.TextLength == 0)
+            {
+                objCitaController.cargarCita(dgvCitas);
+            }
+        }
+
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            string nombreCliente = txtBuscar.Text;
+            objCitaController.buscarcita(nombreCliente, dgvCitas);
+            dgvCitas.ClearSelection();
+            idCita = 0;
+        }
     }
 }
