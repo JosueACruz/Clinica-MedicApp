@@ -33,7 +33,6 @@
             this.btnCategoriaMedicamento = new System.Windows.Forms.Button();
             this.btnPresentacionMedicamento = new System.Windows.Forms.Button();
             this.btnMarcaMedicamento = new System.Windows.Forms.Button();
-            this.btnAgregarMedicamento = new System.Windows.Forms.Button();
             this.btnListaMedicamentos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -102,24 +101,6 @@
             this.btnMarcaMedicamento.UseVisualStyleBackColor = false;
             this.btnMarcaMedicamento.Click += new System.EventHandler(this.btnMarcaMedicamento_Click);
             // 
-            // btnAgregarMedicamento
-            // 
-            this.btnAgregarMedicamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.btnAgregarMedicamento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.btnAgregarMedicamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarMedicamento.Font = new System.Drawing.Font("Century Gothic", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarMedicamento.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarMedicamento.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarMedicamento.Image")));
-            this.btnAgregarMedicamento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarMedicamento.Location = new System.Drawing.Point(615, 100);
-            this.btnAgregarMedicamento.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAgregarMedicamento.Name = "btnAgregarMedicamento";
-            this.btnAgregarMedicamento.Size = new System.Drawing.Size(196, 123);
-            this.btnAgregarMedicamento.TabIndex = 12;
-            this.btnAgregarMedicamento.Text = "AGREGAR MEDICAMENTOS";
-            this.btnAgregarMedicamento.UseVisualStyleBackColor = false;
-            this.btnAgregarMedicamento.Click += new System.EventHandler(this.btnAgregarMedicamento_Click);
-            // 
             // btnListaMedicamentos
             // 
             this.btnListaMedicamentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -146,7 +127,6 @@
             this.Controls.Add(this.btnCategoriaMedicamento);
             this.Controls.Add(this.btnPresentacionMedicamento);
             this.Controls.Add(this.btnMarcaMedicamento);
-            this.Controls.Add(this.btnAgregarMedicamento);
             this.Controls.Add(this.btnListaMedicamentos);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -161,7 +141,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnListaMedicamentos;
-        private System.Windows.Forms.Button btnAgregarMedicamento;
         private System.Windows.Forms.Button btnMarcaMedicamento;
         private System.Windows.Forms.Button btnPresentacionMedicamento;
         private System.Windows.Forms.Button btnCategoriaMedicamento;
