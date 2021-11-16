@@ -28,14 +28,14 @@ namespace MedicAPP.Model
         //Este es el principal de estos metodos
         //paciente, medico, fecha, hora, edad, peso, altura, frecuencia cardiaca, Frecuencia respiratoria, Tension Arterial, tempetatura, 
         //motivo, diagnostico, AmPm
-        public bool insertarConsulta(int paciente, int medico, DateTime fecha, string hora, int edad, double peso, double altura,
+        public bool insertarConsulta(int paciente, int medico, DateTime fecha, string hora, string AmPm, int edad, double peso, double altura,
                                     int frecuenciaCardiaca, int frecuenciaRespiratoria, int tensionArterial,double temperatura,
-                                    string motivo, string diagnostico, string AmPm)
+                                    string motivo, string diagnostico)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "INSERT INTO Consulta VALUES ("+ paciente +", "+ medico +", '"+ fecha +"', '"+ hora +"', "+edad+", "+peso+", "+altura+", "+frecuenciaCardiaca+", "+frecuenciaRespiratoria+", "+tensionArterial+", "+temperatura+", '"+motivo+"', '"+diagnostico+"', '"+AmPm+"')";
+                string consulta = "INSERT INTO Consulta VALUES ("+ paciente +", "+ medico +", '"+ fecha +"', '"+ hora +"', '"+ AmPm +"', "+edad+", "+peso+", "+altura+", "+frecuenciaCardiaca+", "+frecuenciaRespiratoria+", "+tensionArterial+", "+temperatura+", '"+motivo+"', '"+diagnostico+"')";
                 DataSet ds = cnx.Conx(consulta);
                 return true;
             }
@@ -48,13 +48,13 @@ namespace MedicAPP.Model
 
         //Validando para saber si ya existe la consulta a ingresar
         //Estara inactivo por el momento ya que no estoy seguro que se deba validar
-        /**
-        public bool validar(DateTime fecha, string hora, string AmPm)
+        
+        public bool validar(DateTime fecha, string hora, string AmPm, int idPaciente)
         {
             try
             {
                 Conexion cnx = new Conexion();
-                string consulta = "SELECT * FROM Cita where fecha = '" + fecha + "' and Hora = '" + hora + "' and AmPm = '" + AmPm + "'";
+                string consulta = "SELECT * FROM Consulta WHERE Fecha = '"+ fecha +"' AND Hora = '"+ hora +"' AND AmPm = '"+ AmPm + "' AND idPaciente = "+ idPaciente;
                 DataSet ds = cnx.Conx(consulta);
                 if (ds.Tables[0].Rows.Count != 0)
                 {
@@ -65,11 +65,11 @@ namespace MedicAPP.Model
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al vaildar la cita " + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al vaildar la consulta " + ex.Message, "MedicAPP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
-        */
+        
 
         //Este probablemente sirva para algun reporte, o para mostrar el reporte al final de la consulta
         public SqlDataReader buscarCita(string paciente)
