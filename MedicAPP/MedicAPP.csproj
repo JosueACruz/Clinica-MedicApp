@@ -72,6 +72,7 @@
     <Compile Include="Controller\MedicamentoController.cs" />
     <Compile Include="Controller\PacientesController.cs" />
     <Compile Include="Controller\PresentacionMedicamentoController.cs" />
+    <Compile Include="Controller\sesion.cs" />
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>

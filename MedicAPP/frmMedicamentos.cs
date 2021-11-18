@@ -25,8 +25,8 @@ namespace MedicAPP
 
         private void btnAgregarMedicamento_Click(object sender, EventArgs e)
         {
-            frmMedicamentoNuevo frm = new frmMedicamentoNuevo();
-            frm.Show();
+            //frmMedicamentoNuevo frm = new frmMedicamentoNuevo();
+            //frm.Show();
         }
 
         private void btnCategoriaMedicamento_Click(object sender, EventArgs e)

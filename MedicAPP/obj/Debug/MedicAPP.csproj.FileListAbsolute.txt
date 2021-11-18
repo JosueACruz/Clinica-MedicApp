@@ -53,7 +53,6 @@ E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmHistorialMedico.resources
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmLaboratorio.resources
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmListaMedicamentos.resources
-E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmMedicamentoNuevo.resources
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmMedicamentos.resources
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmPacientes.resources
 E:\PROYECTOS-OTRO\Clinica\MedicApp\Clinica-MedicApp\MedicAPP\obj\Debug\MedicAPP.frmPresentacion.resources

@@ -19,6 +19,10 @@ namespace MedicAPP.Controller
             SqlDataReader sdr = objModelLogin.buscarUsuario(username, pass);
             if (sdr.HasRows)
             {
+                //Guardar los datos del usuario en sesion
+                sesion.idMedico = int.Parse(sdr[0].ToString());
+
+
                 //existe el usuario
                 ret = true;
             }
